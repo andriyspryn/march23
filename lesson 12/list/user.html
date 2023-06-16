@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<h1><span class="Line">List</span></h1>
+<div class="wrap"></div>
+<script>
+    fetch(`http://jsonplaceholder.typicode.com/users`)
+    .then((response) => response.json())
+    .then((users) => {
+        const block = document.getElementsByClassName(`wrap`)[0]
+        for (const user of users) {
+            const div = document.createElement(`div`)
+            div.innerText = `${user.id} ${user.name}`
+            block.appendChild(div)
+            const button = document.createElement(`button`)
+            button.innerText = `info`
+            block.appendChild(button)
+
+            button.onclick = () => {
+                location.href = `../user-info/user.html?userId=${user.id}`
+            }
+
+        }
+    })
+
+    // fetch('http://jsonplaceholder.typicode.com/users')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const userList = document.getElementById('userList');
+    //
+    //         data.forEach(user => {
+    //             const listItem = document.createElement('li');
+    //             listItem.innerText = `ID: ${user.id}`;
+    //             userList.appendChild(listItem);
+    //         });
+    //     })
+    //     .catch(error => {
+    //         console.log('Error:', error);
+    //     });
+
+</script>
+</body>
+</html>

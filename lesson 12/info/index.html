@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><span class="Line">info</span></h1>
+<div class="wrap"></div>
+<script>
+    const userId = new URL(location.href).searchParams.get(`userId`)
+    fetch(`http://jsonplaceholder.typicode.com/users/${userId}`)
+        .then((response) => response.json())
+        .then((user) => {
+            const block = document.getElementsByClassName(`wrap`)[0]
+            let div = document.createElement(`h4`)
+            div.innerText = `
+            id: ${user.id}
+            name: ${user.name}
+            username: ${user.username}
+            email: ${user.email}
+            address:
+            street: ${user.address.street}
+            suite: ${user.address.suite}
+            city: ${user.address.city}
+            zipcode: ${user.address.zipcode}
+            geo:
+            lat: ${user.address.geo.lat}
+            lng: ${user.address.geo.lng}
+            phone: ${user.phone}
+            website: ${user.website}
+            company:
+            name: ${user.company.name}
+            catchPhrase: ${user.company.catchPhrase}
+            bs: ${user.company.bs}
+            `
+            block.appendChild(div)
+
+        })
+</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .item{
+            border: 2px solid red;
+            padding: 5px;
+            margin: 3px;
+            width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<button id="prev" disabled="disabled">Prev</button>
+<button id="next">Next</button>
+<div id="wrapper"></div>
+<script>
+// <!--    зробити масив на 100 об'єктів та дві кнопки prev next
+// при завантажені сторінки з'являються перші 10 об'єктів.
+//     При натисканні next виводяться настпні 10 об'єктів
+// При натисканні prev виводяться попередні 10 об'єктів-->
+
+let sity = [
+    {
+        title:`Львів`,
+        type: `сity`
+    },
+    {
+        title:`Київ`,
+        type: `сity`
+    },
+    {
+        title:`Донецьк`,
+        type: `сity`
+    },
+    {
+        title:`Луганськ`,
+        type: `сity`
+    },
+    {
+        title:`Одеса`,
+        type: `сity`
+    },
+    {
+        title:`Запоріжжя`,
+        type: `сity`
+    },
+    {
+        title:`Харків`,
+        type: `сity`
+    },
+    {
+        title:`Херсон`,
+        type: `сity`
+    },
+    {
+        title:`Луцьк`,
+        type: `сity`
+    },
+    {
+        title:`Рівне`,
+        type: `сity`
+    },
+    {
+        title:`Ужгород`,
+        type: `сity`
+    },
+    {
+        title:`Тернопіль`,
+        type: `сity`
+    },
+    {
+        title:`Вінниця`,
+        type: `сity`
+    },
+    {
+        title:`Хмельницький`,
+        type: `сity`
+    },
+    {
+        title:`Житомир`,
+        type: `сity`
+    },
+    {
+        title:`Миколаїв`,
+        type: `сity`
+    },
+    {
+        title:`Чернігів`,
+        type: `сity`
+    },
+    {
+        title:`Черкаси`,
+        type: `сity`
+    },
+    {
+        title:`Чернівці`,
+        type: `сity`
+    },
+    {
+        title:`Самбір`,
+        type: `сity`
+    },
+    {
+        title:`Дрогобич`,
+        type: `сity`
+    },
+    {
+        title:`Стрий`,
+        type: `сity`
+    },
+    {
+        title:`Мостиська`,
+        type: `сity`
+    },
+    {
+        title:`Жовква`,
+        type: `сity`
+    },
+
+
+]
+let prev = document.getElementById(`prev`)
+let next = document.getElementById(`next`)
+
+let page = 1;
+let handler =(page,limit)=>{
+    let wrapper = document.getElementById(`wrapper`);
+    let startIndex = (page-1) * limit;
+    let finishIndex = page * limit;
+    if (finishIndex > sity.length){
+        finishIndex = sity.length;
+        next.setAttribute(`disabled`,`disabled`)
+    }
+    else {
+        next.removeAttribute(`disabled`)
+    }
+    if (startIndex > 0){
+        prev.removeAttribute(`disabled`)
+    } else {
+        prev.setAttribute(`disabled`,`disabled`)
+    }
+
+    const children = []
+    for (let i = startIndex; i < finishIndex; i++) {
+        let item = sity[i];
+        let wrap = document.createElement(`div`)
+        let title = document.createElement(`div`)
+        let type = document.createElement(`div`)
+        wrap.classList.add(`item`)
+        title.innerText = `Title: ${item.title}`
+        type.innerText = `Title: ${item.type}`
+
+        wrap.append(title,type)
+        children.push(wrap)
+    }
+    wrapper.replaceChildren(...children)
+
+}
+handler(page, 10)
+prev.addEventListener(`click`, () => handler(page -= 1,10))
+next.addEventListener(`click`, () => handler(page += 1,10))
+
+
+</script>
+</body>
+</html>

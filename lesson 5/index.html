@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+    let xxx = (a,b) => a * b;
+    document.write(xxx(6,7))
+    document.write(`<div>${`***************`}</div>`)
+    // - створити функцію яка обчислює та повертає площу кола з радіусом r
+let radius = (pi,r) => 2 * pi *r;
+    document.write(radius(3.14,4))
+    document.write(`<div>${`***************`}</div>`)
+    // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
+let sss = (pi,h,r) =>{
+        let result = 2 * pi * r * (h + r) ;
+        return result;
+}
+document.write(sss(3.14,3,4))
+    document.write(`<div>${`***************`}</div>`)
+    // - створити функцію яка приймає масив та виводить кожен його елемент
+let calc = (number) => {
+        let result = [43,54,65];
+        return result;
+
+    }
+    document.write(calc(`number`))
+    document.write(`<div>${`***************`}</div>`)
+    // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
+let texts = (text) => {
+        let result = (`<p>hello</p>`)
+    return result
+}
+document.write(texts(`text`))
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
+    let table = (tables) => {
+        document.write(`<ul><li>${tables}</li><li>${tables}</li><li>${tables}</li></ul>`);
+       }
+       table(`hello`)
+
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+    let bat = (bbb) => {
+        document.write(`<ul>`)
+        for (let i = 0; i < 7; i++) {
+            const bbbElement = bbb[i];
+            document.write(`<li>${bbb}</li>`)
+
+        }
+
+        document.write(`</ul>`)
+    }
+    bat(`andriy`)
+    // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
+let qqq = [43,56,`hello`,true]
+    qqqArr=(arr) => {
+        for (const qqqElement of arr) {
+            document.write(`<h1>${qqqElement}</h1>`)
+
+        }
+    }
+    qqqArr(qqq)
+    // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
+    let ax = [
+        {name: 'vasya', age: 31, status: false},
+        {name: 'petya', age: 30, status: true},
+        {name: 'kolya', age: 29, status: true},
+        {name: 'olya', age: 28, status: false},
+        {name: 'max', age: 30, status: true},
+        {name: 'anya', age: 31, status: false},
+        {name: 'oleg', age: 28, status: false},
+        {name: 'andrey', age: 29, status: true},
+        {name: 'masha', age: 30, status: true},
+        {name: 'olya', age: 31, status: false},
+        {name: 'max', age: 31, status: true}
+    ];
+    axArr = (arr) => {
+        for (const arrElement of arr) {
+            document.write(`<div>status:${arrElement.status} - name:${arrElement.name} - age:${arrElement.age}</div>`)
+
+        }
+    }
+    axArr(ax)
+    // - створити функцію яка повертає найменьше число з масиву
+    let numbers = [43,4,53,56]
+     numberArr=(arr) => {
+        let result = arr[0]
+        for (let i = 0; i < arr.length; i++) {
+            if(result > arr[i]){
+                result = arr[i];
+            }
+
+        }
+        return result;
+
+    }
+    document.write(numberArr(numbers))
+
+
+    // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
+let sum = [34,21,43]
+    sumArr=(arr)=>{
+        let result = 0;
+        for (const arrElement of arr) {
+            result += arrElement;
+
+        }
+        return result;
+    }
+    document.write(`<h1>${sumArr(sum)}</h1>`)
+    // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
+    // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+    swap=(arr,index1,index2)=>{
+        const value1 = arr [index1];
+        const value2 = arr [index2];
+        arr[index1]=value2;
+        arr[index2]=value1;
+        return arr;
+    }
+    document.write(swap([11,22,33,44],0,1))
+    document.write(`<div>${`***************`}</div>`)
+    // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+    // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
+    exchange=(sumUAH,currencyValues,exchangeCurrency) =>{
+        for (const iter of currencyValues) {
+            if(iter.currency === exchangeCurrency )
+                return sumUAH/iter.value
+
+        }
+    }
+    document.write(exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD'))
+</script>
+</body>
+</html>

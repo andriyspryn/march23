@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><span class="Line"> info</span></h1>
+<div class="wrap"></div>
+</body>
+<script>
+    const userId = new URL(location.href).searchParams.get(`userId`)
+    fetch(`https://jsonplaceholder.typicode.com/posts/${userId}/comments`)
+        .then((response) => response.json())
+        .then((users) => {
+            const block = document.getElementsByClassName(`wrap`)[0]
+            for (const user of users) {
+                const div = document.createElement(`div`)
+                div.innerText = ` ${user.id}
+                ${user.name}
+                ${user.email}
+                ${user.body}`
+                block.appendChild(div)
+            }
+        })
+</script>
+</html>

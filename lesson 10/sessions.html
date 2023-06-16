@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sesion = localStorage.getItem(`sessions`)
+    let sessions = sesion ? JSON.parse(sesion) : []
+
+    for (const session of sessions) {
+        let date = document.createElement(`div`)
+        let time = document.createElement(`div`)
+        let obj = formatDate(session.date)
+        console.log(obj)
+        date.innerText = `Date: ${obj.DD}. ${obj.MM}.${obj.YYYY} `
+        time.innerText = `Time; ${obj.hh}: ${obj.mm}.${obj.ss}`
+        document.body.appendChild(date)
+        document.body.appendChild(time)
+    }
+    function formatDate(date) {
+        let obj = new Date (date)
+        let YYYY  = obj.getFullYear().toString()
+        let MM  = (obj.getMonth() + 1).toString()
+        let DD  = obj.getDate() .toString()
+        let hh = obj.getHours().toString()
+        let mm = obj.getMinutes().toString()
+        let ss = obj.getSeconds().toString()
+        return {
+            YYYY,MM,DD,hh,mm,ss
+        }
+
+    }
+</script>
+</body>
+</html>

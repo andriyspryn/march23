@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
+    function calc(a,b){
+        let calc = a * b;
+        return calc;
+    }
+    console.log(calc(5,7))
+
+    // - створити функцію яка обчислює та повертає площу кола з радіусом r
+function xxx(pi,r){
+        let xxx = 2 * pi *r;
+        return xxx;
+
+}
+console.log(xxx(3.14,4))
+    // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
+function xx (pi,h,r) {
+    let xx = 2 * pi * r * (h + r) ;
+    return xx;
+
+}
+console.log(xx(3.14,4,3))
+    // - створити функцію яка приймає масив та виводить кожен його елемент
+function item ( ) {
+        console.log(arguments)
+}
+item(32,656,564,3)
+item(352,65,64,36)
+    // - створити функцію яка створює параграф з текстом. Текст задати через аргумент
+    function text (fff){
+        document.write(`<p>${fff}</p>`)
+    }
+    text(`hello `)
+
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
+function table (dddd) {
+        document.write(`<ul><li>${dddd}</li><li>${dddd}</li><li>${dddd}</li></ul>`);
+}
+table(`table`)
+    // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
+    function bat (ddd) {
+        document.write(`<ul>`)
+        for (let i = 0; i < 5; i++) {
+            const dddElement = ddd[i];
+            document.write(`<li>${ddd}</li>`)
+
+        }
+        document.write(`</ul>`)
+    }
+    bat(`tab`)
+    // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
+let write = [21,23,`false`,true]
+    function writeArr (arr){
+        for (const arrElement of arr) {
+            document.write(`<h1>${arrElement}</h1>`)
+
+        }
+
+    }
+    writeArr(write)
+    // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
+let box = [
+    {id : 1,name : ` Andriy `, age : `32`},
+    {id : 2,name: `taras`,age: 40}
+]
+    function boxArr (arr) {
+        for (const arrElement of arr) {
+            document.write(`<div>id:${arrElement.id} - name:${arrElement.name} - age:${arrElement.age}</div>`)
+
+        }
+    }
+    boxArr(box)
+    // - створити функцію яка повертає найменьше число з масиву
+let numbers = [43,4,53,56,-7]
+    function numberArr(arr){
+        let result = arr[0]
+        for (let i = 0; i < arr.length; i++) {
+            if(result > arr[i]){
+                result = arr[i];
+            }
+
+        }
+        return result;
+
+    }
+document.write(numberArr(numbers))
+
+    // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
+let sum = [21,32,2]
+    function sumArr(arr) {
+        let result = 0;
+        for (const arrElement of arr) {
+            result += arrElement;
+
+        }
+        return result;
+
+    }
+    console.log(sumArr(sum))
+    // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відаовідних індексах
+    // Приклад  swap([11,22,33,44],0,1) //=> [22,11,33,44]
+function swap(arr,index1,index2) {
+        const value1 = arr [index1];
+        const value2 = arr [index2];
+        arr[index1]=value2;
+        arr[index2]=value1;
+        return arr;
+}
+    console.log(swap([11,22,33,44],0,1))
+    // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
+    // Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250
+    function exchange(sumUAH,currencyValues,exchangeCurrency) {
+        for (const item of currencyValues) {
+            if(item.currency === exchangeCurrency)
+                return sumUAH/item.value;
+        }
+    }
+        console.log(exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'USD'))
+
+</script>
+</body>
+</html>

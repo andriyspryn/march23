@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let s1 = 'hello world';
+    console.log(s1)
+    let s2 = 'lorem ipsum';
+    console.log(s2)
+    let s3 = 'javascript is cool';
+    console.log(s3)
+
+    let s4 = 'hello world lorem ipsum javascript is cool';
+    let upperCase = s4.toUpperCase();
+    console.log(upperCase)
+    let s5 = 'hello world lorem ipsum javascript is cool';
+    let upperCase1 = s5.toLowerCase();
+    console.log(upperCase1)
+
+    let astr = ' dirty string   ';
+    let replace = astr.replaceAll(` `,``)
+    console.log(replace)
+
+
+    let str = 'Ревуть воли як ясла повні';
+    let split = str.split(` `);
+    console.log(split)
+
+    let ss = [10,8,-7,55,987,-1011,0,1050,0];
+    ss = ss.map((num) => num.toString());
+    console.log(ss)
+
+
+    let nums = [11,21,3];
+    const sortNums =(nums , direction) => {
+        switch (direction){
+            case `ascending`:
+                return nums.sort((v1, v2) => v1 - v2)
+            case 'descending':
+                return nums.sort((v1, v2) => v2 - v1)
+
+        }
+    }
+    console.log(sortNums(nums,'ascending')) // [3,11,21]
+    console.log(sortNums(nums,'descending')) // [21,11,3]
+
+
+
+    let coursesAndDurationArray = [
+        {title: 'JavaScript Complex', monthDuration: 5},
+        {title: 'Java Complex', monthDuration: 6},
+        {title: 'Python Complex', monthDuration: 6},
+        {title: 'QA Complex', monthDuration: 4},
+        {title: 'FullStack', monthDuration: 7},
+        {title: 'Frontend', monthDuration: 4}
+    ];
+    let sort = coursesAndDurationArray.sort((a,b) => {
+        return b.monthDuration - a.monthDuration;
+    })
+    console.log(sort)
+
+
+    let courses = coursesAndDurationArray.filter(value => value.monthDuration > 5 );
+    console.log(courses)
+    let  map1 = coursesAndDurationArray.map((item,index) =>( {
+        ...item, id: index + 1
+    }));
+    console.log(map1)
+
+
+    // -- відсортувати його за спаданням за monthDuration
+    // -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців
+    // -- за допомоги map перетворити кожен елемент на наступний тип {id,title,monthDuration}
+
+    // описати колоду карт (від 6 до туза без джокерів)
+    // - знайти піковий туз
+    // - всі шістки
+    // - всі червоні карти
+    // - всі буби
+    // - всі трефи від 9 та більше
+
+    let cards = [
+        { cardSuit: 'spade', value: '6', color: 'black' },
+        { cardSuit: 'diamond', value: '6', color: 'red' },
+        { cardSuit: 'heart', value: '6', color: 'red' },
+        { cardSuit: 'clubs', value: '6', color: 'black' },
+        { cardSuit: 'spade', value: '7', color: 'black' },
+        { cardSuit: 'diamond', value: '7', color: 'red' },
+        { cardSuit: 'heart', value: '7', color: 'red' },
+        { cardSuit: 'clubs', value: '7', color: 'black' },
+        { cardSuit: 'spade', value: '8', color: 'black' },
+        { cardSuit: 'diamond', value: '8', color: 'red' },
+        { cardSuit: 'heart', value: '8', color: 'red' },
+        { cardSuit: 'clubs', value: '8', color: 'black' },
+        { cardSuit: 'spade', value: '9', color: 'black' },
+        { cardSuit: 'diamond', value: '9', color: 'red' },
+        { cardSuit: 'heart', value: '9', color: 'red' },
+        { cardSuit: 'clubs', value: '9', color: 'black' },
+        { cardSuit: 'spade', value: '10', color: 'black' },
+        { cardSuit: 'diamond', value: '10', color: 'red' },
+        { cardSuit: 'heart', value: '10', color: 'red' },
+        { cardSuit: 'clubs', value: 'ten', color: 'black' },
+        { cardSuit: 'spade', value: 'jack', color: 'black' },
+        { cardSuit: 'diamond', value: 'jack', color: 'red' },
+        { cardSuit: 'heart', value: 'jack', color: 'red' },
+        { cardSuit: 'clubs', value: 'jack', color: 'black' },
+        { cardSuit: 'spade', value: 'queen', color: 'black' },
+        { cardSuit: 'diamond', value: 'queen', color: 'red' },
+        { cardSuit: 'heart', value: 'queen', color: 'red' },
+        { cardSuit: 'clubs', value: 'queen', color: 'black' },
+        { cardSuit: 'spade', value: 'king', color: 'black' },
+        { cardSuit: 'diamond', value: 'king', color: 'red' },
+        { cardSuit: 'heart', value: 'king', color: 'red' },
+        { cardSuit: 'clubs', value: 'king', color: 'black' },
+        { cardSuit: 'spade', value: 'ace', color: 'black' },
+        { cardSuit: 'diamond', value: 'ace', color: 'red' },
+        { cardSuit: 'heart', value: 'ace', color: 'red' },
+        { cardSuit: 'clubs', value: 'ace', color: 'black' },
+    ];
+    let card1 = cards.find((card) => card.cardSuit === `spade` && card.value === `ace` && card.color === `black`)
+    console.log(card1)
+
+    let card2 = cards.filter((card) => card.value === `6` )
+    console.log(card2)
+
+    let card3 = cards.filter((card) => card.color === `red`)
+    console.log(card3)
+
+    const card4 = cards.filter((card) => card.cardSuit === `diamond`)
+    console.log(card4)
+
+    const card5 = cards.filter((card) => card.cardSuit === `clubs` && card.value >= `9`)
+    console.log(card5)
+
+//     Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
+//     {
+//         spades:[],
+//             diamonds:[],
+//         hearts:[],
+//         clubs:[]
+//     }
+    let cards1 = [
+        { cardSuit: 'spade', value: '6', color: 'black' },
+        { cardSuit: 'diamond', value: '6', color: 'red' },
+        { cardSuit: 'heart', value: '6', color: 'red' },
+        { cardSuit: 'clubs', value: '6', color: 'black' },
+        { cardSuit: 'spade', value: '7', color: 'black' },
+        { cardSuit: 'diamond', value: '7', color: 'red' },
+        { cardSuit: 'heart', value: '7', color: 'red' },
+        { cardSuit: 'clubs', value: '7', color: 'black' },
+        { cardSuit: 'spade', value: '8', color: 'black' },
+        { cardSuit: 'diamond', value: '8', color: 'red' },
+        { cardSuit: 'heart', value: '8', color: 'red' },
+        { cardSuit: 'clubs', value: '8', color: 'black' },
+        { cardSuit: 'spade', value: '9', color: 'black' },
+        { cardSuit: 'diamond', value: '9', color: 'red' },
+        { cardSuit: 'heart', value: '9', color: 'red' },
+        { cardSuit: 'clubs', value: '9', color: 'black' },
+        { cardSuit: 'spade', value: '10', color: 'black' },
+        { cardSuit: 'diamond', value: '10', color: 'red' },
+        { cardSuit: 'heart', value: '10', color: 'red' },
+        { cardSuit: 'clubs', value: 'ten', color: 'black' },
+        { cardSuit: 'spade', value: 'jack', color: 'black' },
+        { cardSuit: 'diamond', value: 'jack', color: 'red' },
+        { cardSuit: 'heart', value: 'jack', color: 'red' },
+        { cardSuit: 'clubs', value: 'jack', color: 'black' },
+        { cardSuit: 'spade', value: 'queen', color: 'black' },
+        { cardSuit: 'diamond', value: 'queen', color: 'red' },
+        { cardSuit: 'heart', value: 'queen', color: 'red' },
+        { cardSuit: 'clubs', value: 'queen', color: 'black' },
+        { cardSuit: 'spade', value: 'king', color: 'black' },
+        { cardSuit: 'diamond', value: 'king', color: 'red' },
+        { cardSuit: 'heart', value: 'king', color: 'red' },
+        { cardSuit: 'clubs', value: 'king', color: 'black' },
+        { cardSuit: 'spade', value: 'ace', color: 'black' },
+        { cardSuit: 'diamond', value: 'ace', color: 'red' },
+        { cardSuit: 'heart', value: 'ace', color: 'red' },
+        { cardSuit: 'clubs', value: 'ace', color: 'black' },
+    ];
+    console.log(cards1.reduce((accumulator, user) => {
+        switch (user.cardSuit){
+            case 'spade' :
+                accumulator.spades.push(user)
+                break
+            case 'diamond':
+                accumulator.diamonds.push(user)
+                break
+            case 'heart':
+                accumulator.hearts.push(user)
+                break
+            case 'clubs':
+                accumulator.clubs.push(user)
+                break
+        }
+
+        return accumulator;
+    }, {
+        spades: [],
+        diamonds: [],
+        hearts: [],
+        clubs: []
+    }));
+
+
+</script>
+</body>
+</html>
