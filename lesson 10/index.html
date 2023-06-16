@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form name="form1">
+  <input typeof="text" name="name">
+  <br>
+  <input typeof="text" name="surname">
+  <br>
+  <input typeof="number" name="age">
+  <br>
+
+  <div>
+    <button>save</button>
+  </div>
+
+  <div>number:<i id="class"></i></div>
+</form>
+<script>
+  let form = document.forms.form1;
+  form.onsubmit = function (e) {
+    e.preventDefault()
+
+    let div = document.createElement(`div`)
+    let name = document.createElement(`div`)
+    name.innerText = `${this.name.value}`
+    let surname = document.createElement(`div`)
+    surname.innerText = `${this.surname.value}`
+    let age = document.createElement(`div`)
+    age.innerText = `${this.age.value}`
+    document.body.appendChild(div)
+    document.body.appendChild(name)
+    document.body.appendChild(surname)
+    document.body.appendChild(age)
+
+  }
+
+
+  let count = localStorage.getItem(`count`) || 0 ;
+  let block = document.getElementById(`class`)
+  let newcount = count + 1;
+  block.innerText = newcount
+  localStorage.setItem(`count`,newcount)
+
+  // Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessions зберігається
+  // інформація про дату та час відвідування сторінки. Є ще сторінка sessions.html (назва довільна), при відвідуванні
+  // якої потрібно відмалювати всю інформацію про відвідування сторінки index.html. Інфу НЕ виводити в консоль,
+  //         а побудувати дом структуру під кожну сессію
+  let sesion = localStorage.getItem(`sessions`)
+  let sessions = sesion ? JSON.parse(sesion) : []
+
+  sessions.push({
+    date: new Date().toISOString()
+  })
+
+  localStorage.setItem(`sessions`,JSON.stringify(sessions))
+
+
+</script>
+</body>
+</html>
